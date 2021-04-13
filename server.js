@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
 
+//TODO: visit https://expressjs.com/en/3x/api.html
 // configure CORS like we did with CrossOrigin in server-java
 app.use(function (req, res, next) {
     res.header('Access-Control-Allow-Origin', '*');
@@ -12,12 +13,13 @@ app.use(function (req, res, next) {
 });
 
 
-const demos = require('./controllers/demo-controller');
+const demos = require('./controllers/demos-controller');
 demos(app)
 
 // const quizzesController = require("./controllers/quizzes-controller");
 // quizzesController(app)
 //instead
 require("./controllers/quizzes-controller")(app)
+require('./controllers/questions-controller')(app)
 
-app.listen(3000)
+app.listen(4000)

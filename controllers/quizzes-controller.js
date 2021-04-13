@@ -1,6 +1,12 @@
-const quizzesService = require("../services/quizzes-service")
 
+//Controllers deal with all things HTTP
+//Controllers sits between two worlds: the HTTP world and the JavaScript object roles
+//Services responsibility is dealing with data
 module.exports = (app) => {
+    const quizzesService = require("../services/quizzes/quizzes-service")
+
+    //req, res allows us participating in client/server
+    //architecture
     const findAllQuizzes = (req, res) => {
         const quizzes = quizzesService.findAllQuizzes();
         res.send(quizzes);
