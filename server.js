@@ -1,6 +1,7 @@
 const express = require('express')
 const app = express()
-require('dotenv').config();
+const dotenv = require('dotenv').config();
+dotenv.load()
 
 //TODO: visit https://expressjs.com/en/3x/api.html
 // configure CORS like we did with CrossOrigin in server-java
