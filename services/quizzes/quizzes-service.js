@@ -1,15 +1,29 @@
 
-const quizzes = require("./quizzes.json")
+//const quizzes = require("./quizzes.json")
+// const quizzesModel = require("../../models/quizzes/quizzes-model")
+const quizzesDao = require('../../daos/quizzes-dao')
 
-const createQuiz = () => {}
 const findAllQuizzes = () => {
-    return quizzes;
+    return quizzesDao.findAllQuizzes();
+    // return quizzesModel.find()//asyncronous
+    //return quizzes;
 }
 const findQuizById = (qid) => {
-    return quizzes.find((quiz) => {
-        return (quiz._id === qid)
-    })
+    // return quizzesModel
+    //     .findById(qid)
+    //     .populate("quizzes")
+    //     .exec()
+    return quizzesDao
+        .findQuizById(qid)
+        .populate("quizzes")
+        .exec()
+
+    // return quizzes.find((quiz) => {
+    //     return (quiz._id === qid)
+    // })
+
 }
+const createQuiz = () => {}
 const updateQuiz = () => {}
 const deleteQuiz = () => {}
 
