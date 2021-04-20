@@ -22,15 +22,13 @@ const uri = "mongodb+srv://myusername:Password@cluster0.ciade.mongodb.net/myFirs
 const mongoose = require('mongoose');//importing the mongoose library-looking for in mongoose in node-modules and exports is stored in mongoose variable
 // mongoose.connect('mongodb://localhost:27017/whiteboard-01', {useNewUrlParser: true, useUnifiedTopology: true});//connects to database
 
-if(process.env.MONGODB_URI) {
+// if(process.env.MONGODB_URI) {
     mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});//connects to database
-}
+// }
 
 require('./controllers/quizzes-controller')(app)
 require('./controllers/questions-controller')(app)
 require('./controllers/quiz-attempts-controller')(app)
-
-
 
 
 const demos = require('./controllers/demos-controller');
