@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
-const dotenv = require('dotenv').config();
-dotenv.load()
+// const dotenv = require('dotenv').config();
+// dotenv.load()
+app.listen(process.env.PORT || 4000);
 
 //TODO: visit https://expressjs.com/en/3x/api.html
 // configure CORS like we did with CrossOrigin in server-java
@@ -17,7 +18,6 @@ app.use(function (req, res, next) {
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-app.listen(process.env.PORT || 4000);
 
 const uri = "mongodb+srv://myusername:Password@cluster0.ciade.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const mongoose = require('mongoose');//importing the mongoose library-looking for in mongoose in node-modules and exports is stored in mongoose variable
