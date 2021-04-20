@@ -40,7 +40,7 @@ demos(app)
 // app.listen(4000)
 
 require('dotenv').config();
-app.listen(process.env.PORT || 4000);bbg
+app.listen(process.env.PORT || 4000);
 
 
 
