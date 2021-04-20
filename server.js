@@ -16,12 +16,14 @@ app.use(function (req, res, next) {
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-//const uri = process.env.MONGODB_URI;
+
 const uri = "mongodb+srv://myusername:Password@cluster0.ciade.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const mongoose = require('mongoose');//importing the mongoose library-looking for in mongoose in node-modules and exports is stored in mongoose variable
 // mongoose.connect('mongodb://localhost:27017/whiteboard-01', {useNewUrlParser: true, useUnifiedTopology: true});//connects to database
-mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});//connects to database
 
+if(process.env.MONGODB_URI) {
+    mongoose.connect(uri, {useNewUrlParser: true, useUnifiedTopology: true});//connects to database
+}
 
 require('./controllers/quizzes-controller')(app)
 require('./controllers/questions-controller')(app)
