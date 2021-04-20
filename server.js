@@ -17,6 +17,7 @@ app.use(function (req, res, next) {
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
+app.listen(process.env.PORT || 4000);
 
 const uri = "mongodb+srv://myusername:Password@cluster0.ciade.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 const mongoose = require('mongoose');//importing the mongoose library-looking for in mongoose in node-modules and exports is stored in mongoose variable
@@ -40,7 +41,7 @@ demos(app)
 // app.listen(4000)
 
 
-app.listen(process.env.PORT || 4000);
+
 
 
 
