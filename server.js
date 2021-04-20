@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
-require('dotenv').config();
-// dotenv.load()
+const dotenv = require('dotenv').config();
+dotenv.load()
 app.listen(process.env.PORT || 4000);
 
 //TODO: visit https://expressjs.com/en/3x/api.html
